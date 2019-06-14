@@ -8,24 +8,24 @@ export class AccountService {
 
   constructor() { }
 
-  loggedIn=false;
+  loggedIn = false;
 
-  login(user:User):boolean{
-    if(user.userName=="kara"&&user.password=="123"){
-      this.loggedIn=true;
-      localStorage.setItem("isLogged",user.userName);
+  login(user: User): boolean {
+    if (user.userName == "kara" && user.password == "123") {
+      this.loggedIn = true;
+      localStorage.setItem("isLogged", user.userName);
       return true;
-    }else{
+    } else {
       return false;
     }
   }
-
-  logOut(){
+/**çıkış */
+  logOut() {
     localStorage.removeItem("isLogged");
-    this.loggedIn=false;
+    this.loggedIn = false;
   }
 
-  isLoggedIn(){
+  isLoggedIn() {
     return this.loggedIn;
   }
 }
