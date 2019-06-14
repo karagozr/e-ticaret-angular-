@@ -1,0 +1,40 @@
+<h3>Yeni Ürün Ekle - Reactive</h3>
+<form [formGroup]="productAddForm" (ngSubmit)="add()">
+  <div class="form-group">
+    <input class="form-control" placeholder="Ürün Adı" type="text" id="name" name="name" formControlName="name">
+    <div class="alert alert-danger"
+      *ngIf="productAddForm.get('name').hasError('required') && productAddForm.get('name').dirty">Ürün adı zorunludur
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Açıkalama" type="text" id="description" name="description"
+      formControlName="description">
+    <div class="alert alert-danger"
+      *ngIf="productAddForm.get('description').hasError('required') && productAddForm.get('description').dirty">
+      Açıkalama zorunludur</div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Görüntü yolu" type="text" id="imageUrl" name="imageUrl"
+      formControlName="imageUrl">
+    <div class="alert alert-danger"
+      *ngIf="productAddForm.get('imageUrl').hasError('required') && productAddForm.get('imageUrl').dirty">
+      Görüntü url'i zorunludur</div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Fiyat" type="text" id="price" name="price" formControlName="price">
+    <div class="alert alert-danger"
+      *ngIf="productAddForm.get('price').hasError('required') && productAddForm.get('price').dirty">
+      Fiyat zorunludur</div>
+  </div>
+  <div class="form-group">
+    <select class="form-control"  formControlName="categoryId" required id="categoryId"
+      name="categoryId">
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{category.name}}
+      </option>
+    </select>
+    <div *ngIf="productAddForm.get('categoryId').hasError('required') && productAddForm.get('categoryId').touched" class="alert alert-danger">Kategori girmek zorunludur.</div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="productAddForm.invalid">Ürün Ekle</button>
+
+</form>
