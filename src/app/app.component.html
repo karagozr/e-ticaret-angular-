@@ -3,8 +3,10 @@
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">E-Ticaret App</a>
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
-        <a class="nav-link" routerLink="/login">
+        <a *ngIf="isLoggedin()==false" class="nav-link" routerLink="/login">
           Login</a>
+          <a *ngIf="isLoggedin()==true" (click)="logOut()" class="nav-link">
+            Logout</a>
       </li>
     </ul>
   </nav>

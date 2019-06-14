@@ -13,6 +13,7 @@ import { ProductAddForms1Component } from './product/product-add-forms1/product-
 import { ProductAddForms2Component } from './product/product-add-forms2/product-add-forms2.component';
 import { LoginComponent } from './login/login.component';
 import { AccountService } from './services/account.service';
+import { LoginGuard } from './login/login.guard';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,10 @@ import { AccountService } from './services/account.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AlertifyService, AccountService],
+  providers: [AlertifyService, AccountService,LoginGuard],
   bootstrap: [AppComponent]
 })
 /*providers: global servis olduğu için */
-export class AppModule { }
+export class AppModule { 
+  
+}
